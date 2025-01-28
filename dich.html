@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="website icon" type="png" href="sss.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="dich.css">
+    <title>❤️Happy New Year 2025!💕</title>
+    <script type='text/javascript'>
+        //<![CDATA[
+        var pictureSrc ="https://1.bp.blogspot.com/-CXx9jt2JMRk/Vq-Lh5fm88I/AAAAAAAASwo/XivooDn_oSY/s1600/hoamai.png";//Link ảnh hoa muốn hiển thị trên web
+        var pictureWidth = 15; //Chiều rộng của hoa mai or đào
+        var pictureHeight = 15; //Chiều cao của hoa mai or đào
+        var numFlakes = 12; //Số bông hoa xuất hiện cùng một lúc trên trang web
+        var downSpeed = 0.01; //Tốc độ rơi của hoa
+        var lrFlakes = 9; //Tốc độ các bông hoa giao động từ bên trai sang bên phải và ngược lại
+        
+        
+        if( typeof( numFlakes ) != 'number' || Math.round( numFlakes ) != numFlakes || numFlakes < 1 ) { numFlakes = 10; }
+        
+        //draw the snowflakes
+        for( var x = 0; x < numFlakes; x++ ) {
+        if( document.layers ) { //releave NS4 bug
+        document.write('<layer id="snFlkDiv'+x+'"><imgsrc="'+pictureSrc+'" height="'+pictureHeight+'"width="'+pictureWidth+'" alt="*" border="0"></layer>');
+        } else {
+        document.write('<div style="position:absolute; z-index:9999;"id="snFlkDiv'+x+'"><img src="'+pictureSrc+'"height="'+pictureHeight+'" width="'+pictureWidth+'" alt="*"border="0"></div>');
+        }
+        }
+        
+        //calculate initial positions (in portions of browser window size)
+        var xcoords = new Array(), ycoords = new Array(), snFlkTemp;
+        for( var x = 0; x < numFlakes; x++ ) {
+        xcoords[x] = ( x + 1 ) / ( numFlakes + 1 );
+        do { snFlkTemp = Math.round( ( numFlakes - 1 ) * Math.random() );
+        } while( typeof( ycoords[snFlkTemp] ) == 'number' );
+        ycoords[snFlkTemp] = x / numFlakes;
+        }
+        
+        //now animate
+        function flakeFall() {
+        if( !getRefToDivNest('snFlkDiv0') ) { return; }
+        var scrWidth = 0, scrHeight = 0, scrollHeight = 0, scrollWidth = 0;
+        //find screen settings for all variations. doing this every time allows for resizing and scrolling
+        if( typeof( window.innerWidth ) == 'number' ) { scrWidth = window.innerWidth; scrHeight = window.innerHeight; } else {
+        if( document.documentElement && (document.documentElement.clientWidth ||document.documentElement.clientHeight ) ) {
+        scrWidth = document.documentElement.clientWidth; scrHeight = document.documentElement.clientHeight; } else {
+        if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+        scrWidth = document.body.clientWidth; scrHeight = document.body.clientHeight; } } }
+        if( typeof( window.pageYOffset ) == 'number' ) { scrollHeight = pageYOffset; scrollWidth = pageXOffset; } else {
+        if( document.body && ( document.body.scrollLeft ||document.body.scrollTop ) ) { scrollHeight = document.body.scrollTop;scrollWidth = document.body.scrollLeft; } else {
+        if(document.documentElement && (document.documentElement.scrollLeft ||document.documentElement.scrollTop ) ) { scrollHeight =document.documentElement.scrollTop; scrollWidth =document.documentElement.scrollLeft; } }
+        }
+        //move the snowflakes to their new position
+        for( var x = 0; x < numFlakes; x++ ) {
+        if( ycoords[x] * scrHeight > scrHeight - pictureHeight ) { ycoords[x] = 0; }
+        var divRef = getRefToDivNest('snFlkDiv'+x); if( !divRef ) { return; }
+        if( divRef.style ) { divRef = divRef.style; } var oPix = document.childNodes ? 'px' : 0;
+        divRef.top = ( Math.round( ycoords[x] * scrHeight ) + scrollHeight ) + oPix;
+        divRef.left = ( Math.round( ( ( xcoords[x] * scrWidth ) - (pictureWidth / 2 ) ) + ( ( scrWidth / ( ( numFlakes + 1 ) * 4 ) ) * (Math.sin( lrFlakes * ycoords[x] ) - Math.sin( 3 * lrFlakes * ycoords[x]) ) ) ) + scrollWidth ) + oPix;
+        ycoords[x] += downSpeed;
+        }
+        }
+        
+        //DHTML handlers
+        function getRefToDivNest(divName) {
+        if( document.layers ) { return document.layers[divName]; } //NS4
+        if( document[divName] ) { return document[divName]; } //NS4 also
+        if( document.getElementById ) { return document.getElementById(divName); } //DOM (IE5+, NS6+, Mozilla0.9+, Opera)
+        if( document.all ) { return document.all[divName]; } //Proprietary DOM - IE4
+        return false;
+        }
+        
+        window.setInterval('flakeFall();',100);
+        //]]>
+        </script>
+</head>
+<body>
+    <div class="box-slider">
+        <div class="slider1">
+            <img src="" alt="">  <!--ảnh back ground cha-->
+            <div class="happynewyear">
+                <div class="textHappynewyear">
+                    <div class="box-span">
+                        <span></span>
+                    </div>
+                    <div class="box-span">
+                        <span></span>
+                    </div>
+                    <div class="box-span">
+                        <span></span>
+                    </div>
+                    <div class="box-span">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="box-button">
+                <div class="button">
+                    <button>Ấn vào đây nè!</button>
+                    <span><i class="fa-solid fa-heart"></i></span>
+                </div>
+            </div>
+            <div class="box-slider_img1">
+                <div class="slider-img1">
+                    <img src="circular-pattern.png" alt="">
+                </div>
+                <div class="pattern">
+                    <img src="pattern.png" alt="">
+                </div>
+            </div>
+            <div class="circle">
+                <span></span>
+            </div>
+            <div class="box-flower">
+                <div class="flower-img">
+                    <img src="flower.png" alt="">
+                </div>
+                <div class="flower-img">
+                    <img src="flower.png" alt="">
+                </div>
+                <div class="flower-img">
+                    <img src="flower1.png" alt="">
+                </div>
+                <div class="flower-img">
+                    <img src="flower1.png" alt="">
+                </div>
+                <div class="flower-img">
+                    <img src="flower2.png" alt="">
+                </div>
+                <div class="flower-img">
+                    <img src="flower2.png" alt="">
+                </div>
+            </div>
+            <div class="box-slider_img2">
+                <div class="box-slider-img2">
+                    <div class="slider-img2">
+                        <img src="lanterns.png" alt="">
+                    </div>
+                </div>
+                <div class="box-slider-img3">
+                    <div class="slider-img3">
+                        <img src="lanterns.png" alt="">
+                    </div>
+                </div>
+                <div class="box-slider-img4">
+                    <div class="slider-img4">
+                        <img src="lanterns.png" alt="">
+                    </div>
+                </div>
+                <div class="box-slider-img5">
+                    <div class="slider-img5">
+                        <img src="lanterns.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="slider-img6">
+                <img src="cloud-red1.png" alt="">
+                <img src="cloud-red2.png" alt="">
+                <img src="cloud-red2.png" alt="">
+            </div>
+            <div class="box-lion_dance">
+                <div class="lion_dance1">
+                    <img src="Lion-dance.gif" alt="">
+                </div>
+                <div class="lion_dance2">
+                    <img src="Lion-dance2.gif" alt="">
+                </div>
+            </div>
+            <div class="cat">
+                <img src="sss.png" alt="">
+            </div>
+            <div class="box-number">
+                <div class="number2023">
+                    <div class="number">
+                        <span>2</span>
+                    </div>
+                    <div class="number">
+                        <span>0</span>
+                    </div>
+                    <div class="number">
+                        <span>2</span>
+                    </div>
+                    <div class="number">
+                        <span>5</span>
+                    </div>
+                </div>
+            </div>
+            <div class="box-rim">
+                <div class="rim1">
+                    <img src="rim1.png" alt="">
+                </div>
+                <div class="rim2">
+                    <img src="rim1.png" alt="">
+                </div>
+            </div>
+            <div class="box-texture_clouds">
+                <div class="texture_clouds1">
+                    <img src="texture-clouds.png" alt="">
+                </div>
+                <div class="texture_clouds1">
+                    <img src="texture-clouds.png" alt="">
+                </div>
+                <div class="texture_clouds1">
+                    <img src="texture-clouds.png" alt="">
+                </div>
+                <div class="texture_clouds1">
+                    <img src="texture-clouds.png" alt="">
+                </div>
+                <div class="texture_clouds1">
+                    <img src="texture-clouds.png" alt="">
+                </div>
+            </div>
+            <div class="box-big_clouds">
+                <div class="big_clouds1">
+                    <img src="big-clouds1.png" alt="">
+                </div>
+                <div class="big_clouds2">
+                    <img src="big-clouds2.png" alt="">
+                </div>
+                <div class="big_clouds3">
+                    <img src="big-clouds3.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="slider2">
+            <div class="rhombus"></div>
+            <div class="rhombus"></div>
+            <div class="rhombus-img">
+                <img src="yeu.jpg" alt=""> 
+            </div>
+            <div class="mail">
+                <button><i class="fa-regular fa-envelope"></i></button>
+                <span class="heart"><i class="fa-solid fa-heart"></i></span>
+            </div>
+        </div>
+        <div class="slider3">
+            <div class="box-content">
+                <div class="left">
+                    <img src="bg1.jpg" alt="">
+                    <div class="center">
+
+                    </div>
+                    <div class="lanterns-content">
+                        <img src="lanterns.png" alt="">
+                    </div>
+                    <div class="box-big_flowers">
+                        <img src="big-flower.png" alt="">
+                        <img src="big-flower.png" alt="">
+                        <img src="big-flower.png" alt="">
+                        <img src="flower1.png" alt="">
+                        <img src="flower1.png" alt="">
+                        <img src="flower2.png" alt="">
+                        <img src="flower2.png" alt="">
+                        <img src="flower2.png" alt="">
+                    </div>
+                    <div class="box-circle_left">
+                        <div class="circle_left">
+                            <img src="circular-pattern.png" alt="">
+                            <div class="text-content">
+                                <h2>Happy New</h2>
+                                <h1>Year</h1>
+                                <span>2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="apricot_blossom">
+                        <img src="apricot-blossom.png" alt="">
+                        <img src="apricot-blossom.png" alt="">
+                        <img src="apricot-blossom.png" alt="">
+                        <img src="apricot-blossom.png" alt="">
+                        <img src="apricot-blossom.png" alt="">
+                        <img src="apricot-blossom.png" alt="">
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="content">
+                        <div class="title">
+                            <h1>2025!</h1>
+                        </div>
+                        <p>Năm mới đến rồi, cảm ơn em đã là lý do khiến mỗi ngày trong năm qua của anh đều trọn vẹn. Hy vọng năm nay chúng ta sẽ cùng tạo ra nhiều kỉ niệm, nhiều khoảnh khắc đẹp hơn trong năm nay nha!
+                            Anh chúc em năm nay đạt được mọi mục tiêu nhưng điều anh mong nhất đó là em luôn mỉm cười, khỏe mạnh, bình an, và hạnh phúc bên anh! Yêu em nhiều lắm❤️</p>  
+                        <div class="fixedContent">
+                            <h3>Người gửi: Phạm Đức Thiện</h3>
+                        </div>
+                    <div class="phanhoi">
+                            <h4>Anh iu của em đợi phản hồi của em ở đây nè💕</h4>
+                    </div>
+                            <!-- Thêm đường link đến trang Messenger -->
+     <div class="messenger-link">
+    <a href="https://www.facebook.com/bethienchuchee" target="_blank"> ==>💌<==
+    </a>
+    </div>
+                    </div>
+                </div>
+            </div>
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+    </div>
+
+    <audio id="song">
+        <source src="sontung.mp3" type="audio/mp3">
+    </audio>
+
+<script src="dich.js"></script>
+</body>
+</html>
